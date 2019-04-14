@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+
+	"github.com/jeannie/cipher-go/ciphers"
 )
 
 func main() {
@@ -11,4 +13,6 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	plainTxt, _ := reader.ReadString('\n')
 	fmt.Printf("Cipher text: %s", plainTxt)
+
+	ciphers.GetCaesar()
 }

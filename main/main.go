@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/jeannie/cipher-go/ciphers"
+	"github.com/jeannie/cipher-go/util"
 )
 
 func main() {
@@ -14,5 +15,9 @@ func main() {
 	plainTxt, _ := reader.ReadString('\n')
 	fmt.Printf("Cipher text: %s", plainTxt)
 
+	ciphers.GetRotThirteen()
 	ciphers.GetCaesar()
+	ciphers.GetVigenere()
+
+	util.GetAlphaShift()
 }

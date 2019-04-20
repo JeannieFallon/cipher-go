@@ -1,15 +1,13 @@
 package util
 
-//TODO hardcoded values into constants
-
 // GetCipherLetter returns
 func GetCipherLetter(ascVal int, shiftVal int) string {
 
 	// only shift upper- and lowercase letters
-	if ascVal >= 65 && ascVal <= 90 {
-		ascVal = GetCipherASCII(65, ascVal, shiftVal)
-	} else if ascVal >= 97 && ascVal <= 122 {
-		ascVal = GetCipherASCII(97, ascVal, shiftVal)
+	if ascVal >= engUpperFloor && ascVal <= engUpperCeiling {
+		ascVal = GetCipherASCII(engUpperFloor, ascVal, shiftVal)
+	} else if ascVal >= engLowerFloor && ascVal <= engLowerCeiling {
+		ascVal = GetCipherASCII(engLowerFloor, ascVal, shiftVal)
 	}
 
 	// convert ASCII val back to letter
@@ -28,5 +26,5 @@ func GetCipherASCII(alphaMapVal int, ascVal int, shiftVal int) int {
 
 // GetAlphaIndex applies shift value and returns cipher letter index.
 func GetAlphaIndex(alphaIdx int, shiftVal int) int {
-	return (alphaIdx + shiftVal) % 26
+	return (alphaIdx + shiftVal) % engAlphaLen
 }

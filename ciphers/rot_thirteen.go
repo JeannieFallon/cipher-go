@@ -13,7 +13,6 @@ func GetRotThirteen(plainTxt string) string {
 	var ascVal int
 	var cipherLet string
 
-	// TODO for _, r := range "absdef"
 	for i := 0; i < len(plainTxt); i++ {
 		ascVal = int(plainTxt[i])
 		cipherLet = util.GetCipherLetter(ascVal, 13)

@@ -1,10 +1,7 @@
 package ciphers
 
-import (
-	"fmt"
-)
-
 // GetCaesar applies Caesar cipher to given string
-func GetCaesar() {
-	fmt.Println("Caesar hit")
+func GetCaesar(plainTxt string, keyVal int) string {
+	cipherTxt := "This is caesar cipher text."
+	return cipherTxt
 }

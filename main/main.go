@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/jeannie/cipher-go/ciphers"
 )
@@ -19,11 +20,11 @@ func main() {
 
 	fmt.Println("Enter a key value for the Caesar cipher:")
 	keyStr, _ := reader.ReadString('\n')
-	keyVal, _ := strconv.Atoi(keyStr)
+	keyVal, _ := strconv.Atoi(strings.TrimSpace(keyStr))
 
 	rot13Cipher := ciphers.GetRotThirteen(plainTxt)
 	caesarCipher := ciphers.GetCaesar(plainTxt, keyVal)
 
-	fmt.Printf("Rot-13 cipher text:\n%s", rot13Cipher)
+	fmt.Printf("Rot-13 cipher text:\n%s\n", rot13Cipher)
 	fmt.Printf("Caesar cipher text is:\n%s", caesarCipher)
 }

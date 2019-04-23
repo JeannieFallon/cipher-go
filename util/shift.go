@@ -1,5 +1,7 @@
 package util
 
+import "strings"
+
 // GetCipherLetter returns
 func GetCipherLetter(ascVal int, shiftVal int) string {
 
@@ -27,4 +29,25 @@ func GetCipherASCII(alphaMapVal int, ascVal int, shiftVal int) int {
 // GetAlphaIndex applies shift value and returns cipher letter index.
 func GetAlphaIndex(alphaIdx int, shiftVal int) int {
 	return (alphaIdx + shiftVal) % engAlphaLen
+}
+
+// GetShiftVals returns shift values from letters of keyword.
+func GetShiftVals(keyWord string, keyLen int) []int {
+
+	var ascVal int
+	shiftVals := make([]int, keyLen)
+	keyWordLower := strings.ToLower(keyWord)
+
+	for i := 0; i < keyLen; i++ {
+		ascVal = int(keyWordLower[i])
+		shiftVals[i] = GetShiftVal(ascVal)
+	}
+
+	return shiftVals
+}
+
+// GetShiftVal returns shift value for a letter based upon alphabet index.
+func GetShiftVal(ascVal int) int {
+	// only pass lowercase letters to normalize ASCII to index translation
+	return (ascVal - engLowerFloor) % 26
 }

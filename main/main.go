@@ -22,9 +22,14 @@ func main() {
 	keyStr, _ := reader.ReadString('\n')
 	keyVal, _ := strconv.Atoi(strings.TrimSpace(keyStr))
 
+	fmt.Println("Enter a key word for the Vigenere cipher:")
+	keyWord, _ := reader.ReadString('\n')
+
 	rot13Cipher := ciphers.GetRotThirteen(plainTxt)
 	caesarCipher := ciphers.GetCaesar(plainTxt, keyVal)
+	vigenereCipher := ciphers.GetVigenere(plainTxt, keyWord)
 
 	fmt.Printf("Rot-13 cipher text:\n%s\n", rot13Cipher)
 	fmt.Printf("Caesar cipher text is:\n%s", caesarCipher)
+	fmt.Printf("Vigenere cipher text is:\n%s\n", vigenereCipher)
 }

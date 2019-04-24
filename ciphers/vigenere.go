@@ -16,25 +16,25 @@ func GetVigenere(plainTxt string, keyWord string) string {
 	txtLen := len(plainTxt)
 	keyLen := len(keyWord)
 
-	// get ascVal of each letter in keyword
+	// get shift value of each letter in keyword
 	shiftVals := util.GetShiftVals(keyWord, keyLen)
 
-	// loop over each letter of plaintext
-	for i := 0; i < txtLen; i++ {
+	// loop over each letter of plain text
+	i := 0
+	for i < txtLen {
 
 		// loop over each letter of keyword
 		for j := 0; j < keyLen; j++ {
 
-			if i < len(plainTxt) {
+			if i >= txtLen {
+				break
+			} else {
 				ascVal = int(plainTxt[i])
 				keyVal := shiftVals[j]
 				cipherLet = util.GetCipherLetter(ascVal, keyVal)
 				b.WriteString(cipherLet)
 
 				i++
-
-			} else {
-				break
 			}
 		}
 	}

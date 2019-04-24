@@ -1,7 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 
 	"github.com/jeannie/cipher-go/ciphers"
 )
@@ -9,21 +13,21 @@ import (
 // TODO validation
 
 func main() {
-	// reader := bufio.NewReader(os.Stdin)
+	reader := bufio.NewReader(os.Stdin)
 
-	// fmt.Println("Enter your plain text:")
-	// plainTxt, _ := reader.ReadString('\n')
+	fmt.Println("Enter your plain text:")
+	plainTxt, _ := reader.ReadString('\n')
 
-	// fmt.Println("Enter a key value for the Caesar cipher:")
-	// keyStr, _ := reader.ReadString('\n')
-	// keyVal, _ := strconv.Atoi(strings.TrimSpace(keyStr))
+	fmt.Println("Enter a key value for the Caesar cipher:")
+	keyStr, _ := reader.ReadString('\n')
+	keyVal, _ := strconv.Atoi(strings.TrimSpace(keyStr))
 
-	// fmt.Println("Enter a key word for the Vigenere cipher:")
-	// keyWord, _ := reader.ReadString('\n')
+	fmt.Println("Enter a key word for the Vigenere cipher:")
+	keyWord, _ := reader.ReadString('\n')
 
-	plainTxt := "aB 1!"
-	keyVal := 12
-	keyWord := "aBcD"
+	// plainTxt := "abc123 XYZ!"
+	// keyVal := 12
+	// keyWord := "aBcD"
 
 	rot13Cipher := ciphers.GetRotThirteen(plainTxt)
 	caesarCipher := ciphers.GetCaesar(plainTxt, keyVal)

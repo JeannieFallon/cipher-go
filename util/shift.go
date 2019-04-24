@@ -6,10 +6,10 @@ import "strings"
 func GetCipherLetter(ascVal int, shiftVal int) string {
 
 	// only shift upper- and lowercase letters
-	if ascVal >= engUpperFloor && ascVal <= engUpperCeiling {
-		ascVal = GetCipherASCII(engUpperFloor, ascVal, shiftVal)
-	} else if ascVal >= engLowerFloor && ascVal <= engLowerCeiling {
-		ascVal = GetCipherASCII(engLowerFloor, ascVal, shiftVal)
+	if ascVal >= EngUpperFloor && ascVal <= EngUpperCeiling {
+		ascVal = GetCipherASCII(EngUpperFloor, ascVal, shiftVal)
+	} else if ascVal >= EngLowerFloor && ascVal <= EngLowerCeiling {
+		ascVal = GetCipherASCII(EngLowerFloor, ascVal, shiftVal)
 	}
 
 	// convert ASCII val back to letter
@@ -28,7 +28,7 @@ func GetCipherASCII(alphaMapVal int, ascVal int, shiftVal int) int {
 
 // GetAlphaIndex applies shift value and returns cipher letter index.
 func GetAlphaIndex(alphaIdx int, shiftVal int) int {
-	return (alphaIdx + shiftVal) % engAlphaLen
+	return (alphaIdx + shiftVal) % EngAlphaLen
 }
 
 // GetShiftVals returns shift values from letters of keyword.
@@ -49,5 +49,5 @@ func GetShiftVals(keyWord string, keyLen int) []int {
 // GetShiftVal returns shift value for a letter based upon alphabet index.
 func GetShiftVal(ascVal int) int {
 	// only pass lowercase letters to normalize ASCII to index translation
-	return (ascVal - engLowerFloor) % 26
+	return (ascVal - EngLowerFloor) % 26
 }

@@ -46,8 +46,8 @@ func GetShiftVals(keyWord string, keyLen int) []int {
 	return shiftVals
 }
 
-// GetShiftVal returns shift value for a letter based upon alphabet index.
+// GetShiftVal returns shift value for a letter based upon alphabet index plus one.
 func GetShiftVal(ascVal int) int {
 	// only pass lowercase letters to normalize ASCII to index translation
-	return (ascVal - EngLowerFloor) % 26
+	return ((ascVal - EngLowerFloor) % 26) + 1
 }

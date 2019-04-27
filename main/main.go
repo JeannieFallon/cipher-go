@@ -25,10 +25,6 @@ func main() {
 	fmt.Println("Enter a key word for the Vigenere cipher:")
 	keyWord, _ := reader.ReadString('\n')
 
-	// plainTxt := "abc123 XYZ!"
-	// keyVal := 12
-	// keyWord := "aBcD"
-
 	rot13Cipher := ciphers.GetRotThirteen(plainTxt)
 	caesarCipher := ciphers.GetCaesar(plainTxt, keyVal)
 	vigenereCipher := ciphers.GetVigenere(plainTxt, keyWord)

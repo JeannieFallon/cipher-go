@@ -14,6 +14,9 @@ func GetVigenere(plainTxt string, keyWord string) string {
 	var shiftVal int
 	var cipherLet string
 
+	// make sure no extraenous spaces on keyword from input
+	keyWord = strings.TrimSpace(keyWord)
+
 	txtLen := len(plainTxt)
 	keyLen := len(keyWord)
 

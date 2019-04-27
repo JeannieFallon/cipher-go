@@ -11,6 +11,7 @@ func GetVigenere(plainTxt string, keyWord string) string {
 
 	var b strings.Builder
 	var ascVal int
+	var shiftVal int
 	var cipherLet string
 
 	txtLen := len(plainTxt)
@@ -30,8 +31,8 @@ func GetVigenere(plainTxt string, keyWord string) string {
 				break
 			} else {
 				ascVal = int(plainTxt[i])
-				keyVal := shiftVals[j]
-				cipherLet = util.GetCipherLetter(ascVal, keyVal)
+				shiftVal = shiftVals[j]
+				cipherLet = util.GetCipherLetter(ascVal, shiftVal)
 				b.WriteString(cipherLet)
 
 				i++

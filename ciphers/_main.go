@@ -1,4 +1,0 @@
-package ciphers
-
-func main() {
-}
